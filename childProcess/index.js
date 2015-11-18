@@ -1,22 +1,35 @@
 /**
- * 子プロセスを起動するスクリプト
- * @param  {[type]} function( [description]
- * @return {[type]}           [description]
+ * Fork chilid process sample
  */
 (function() {
   var spawn = require('child_process').spawn;
-  var ssh    = spawn('ssh', ['localhost', 'pwd; ls -l'],
-    {cwd :'/tmp'});
+  var ok    = spawn('bash', ['ok.sh'], {cwd :'/tmp'});
+  var ng    = spawn('bash', ['ng.sh'], {cwd :'/tmp'});
 
-  ssh.stdout.on('data', function (data) {
+  // "ok.sh" returns 0
+  ok.stdout.on('data', function (data) {
     console.log('stdout: ' + data);
   });
 
-  ssh.stderr.on('data', function (data) {
+  ok.stderr.on('data', function (data) {
     console.log('stderr: ' + data);
   });
 
-  ssh.on('close', function (code) {
+  ok.on('close', function (code) {
     console.log('child process exited with code ' + code);
   });
+
+  // ng.sh returns 1
+  ng.stdout.on('data', function (data) {
+    console.log('stdout: ' + data);
+  });
+
+  ng.stderr.on('data', function (data) {
+    console.log('stderr: ' + data);
+  });
+
+  ng.on('close', function (code) {
+    console.log('child process exited with code ' + code);
+  });
+
 })();
