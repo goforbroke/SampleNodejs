@@ -1,8 +1,10 @@
 /**
  * This program implements for following module inheritance.
- * Module -> ModuleBase
+ * Module -> ModuleBase -> EventEmitter
+ *
  * Install:
- * 	npm install log4js
+ * 	npm install
+ *
  * Execute:
  * 	node main.js
  */
@@ -22,4 +24,17 @@
   var subClassObj = new SubClass(logger);
   logger.info(subClassObj.func());
   logger.info(subClassObj.subClassFunc());
+
+  logger.info('EventEmitter implements');
+  // Event emits by super class object(ModuleBase)
+  superClassObj.on('someevent', function(data) {
+    logger.info('Received on main.js : ', data);
+  });
+  superClassObj.echo('superClassObj');
+
+  // Event emits by sub class object(Module)
+  subClassObj.on('someevent', function(data) {
+    logger.info('Received on main.js : ', data);
+  });
+  subClassObj.echo('subClassObj');
 })();

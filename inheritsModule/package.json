@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "log4js": "0.6.28"
+    "log4js": "0.6.28",
+    "eventemitter": "0.3.3"
   }
 }
