@@ -26,15 +26,23 @@
   logger.info(subClassObj.subClassFunc());
 
   logger.info('EventEmitter implements');
-  // Event emits by super class object(ModuleBase)
+  // Event emits by superclass object(ModuleBase)
   superClassObj.on('someevent', function(data) {
     logger.info('Received on main.js : ', data);
   });
   superClassObj.echo('superClassObj');
 
-  // Event emits by sub class object(Module)
+  // Event emits by subclass object(Module)
   subClassObj.on('someevent', function(data) {
     logger.info('Received on main.js : ', data);
   });
   subClassObj.echo('subClassObj');
+
+  // Access subclass private object
+  var subClassPrivateObj = subClassObj.getPrivateObj();
+  logger.info('Access subclass private object.');
+  logger.debug( Object.keys(subClassPrivateObj) );
+  logger.debug(subClassPrivateObj.foo);
+  logger.debug(subClassPrivateObj.bar);
+  logger.debug(subClassPrivateObj.num);
 })();
