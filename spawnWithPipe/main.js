@@ -8,7 +8,7 @@
   };
 
   var childOptions = { stdio : [null, null, null, 'pipe'] };
-  var callee  = spawn( 'node', ['callee.js', JSON.stringify(sendData)],
+  var callee  = spawn( 'node', ['./callee.js', JSON.stringify(sendData)],
     childOptions );
 
   callee.stdio[3].on('data', function(buf) {
