@@ -7,8 +7,8 @@
 
   generateByA = [1, 2, 3].map(cb, typeA);
   generateByB = [1, 2, 3].map(cb, typeB);
-  console.log(generateByA);
-  console.log(generateByB);
+  console.log(generateByA); // => [2, 4, 6]
+  console.log(generateByB); // => [1, 4, 9]
 
   function cb(value, index, array) {
     switch(this.type) {
