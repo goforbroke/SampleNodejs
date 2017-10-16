@@ -1,7 +1,7 @@
 // Node.js 8.6.0
 // Mac OS x Sierra
 // Node.jsはイベントループで待ち続けるため，標準入力はEOFが来るまで待機し続ける．
-// 状態をグローバル変数で管理することで行数の位置を把握できるが，可読性が悪い．
+// 状態をグローバル変数で管理することで行数の位置を把握できるが，可読性が低い．
 const lineReader = require('readline').createInterface({
   input: process.stdin,
   output: () => {}
@@ -14,6 +14,7 @@ let sets = 0;
 lineReader.on('line', (line) => {
   switch(lineNumber) {
     case 0:
+      // 先頭行に読み込む行数が記述してある
       lineNumber++;
       sets = Number(line);
       break;
