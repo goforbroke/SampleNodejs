@@ -1,7 +1,7 @@
 // Node.js 8.6.0
 // Mac OS x Sierra
-// Node.jsはイベントループで待ち続けため，標準入力はEOFが来るまで待機し続ける．
-// そこで，標準入力の待ち受けが終わるまで入力をバッファに溜めて，まとめて処理を行う
+// Node.jsはイベントループで駆動するため，標準入力はEOFが来るまで待機し続ける．
+// そこで，EOFまで入力をバッファに溜めて，まとめて処理を行う
 
 const lineReader = require('readline').createInterface({
   input: process.stdin
