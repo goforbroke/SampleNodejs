@@ -15,7 +15,7 @@ lineReader.on('line', (line) => {
 
 // 2. EOFをトリガに入力データの処理を行う
 // WORKAROUND: readline.on('end', )はEOFを検知しない
-process.stdin.on('close', () => {
+lineReader.on('close', () => {
   const sets = Number(lines.shift());
   for(let i = 0; i < sets; i++) {
     console.log('Hello!, ', lines[i]);
