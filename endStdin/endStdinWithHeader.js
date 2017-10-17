@@ -21,7 +21,7 @@ let totalLines = 0;
 lineReader.on('line', (line) => {
   switch(lineNumber) {
     case 0:
-      // 先頭行に読み込む行数が記述してある
+      // 先頭行に読み込むデータサイズ(セット*セットあたりの行数)が記述してある
       sets = Number(line);
       // 先頭行は除いて残り行数をカウントする
       totalLines = sets * READLINES_PER_SET - 1;
